@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <span style="float: right;">{{service.form.controls['id'].value?" Edit Dialog" : " New Dialog"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button style="float: right;" class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+        <mat-icon>clear</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<form [formGroup]="service.form" (ngSubmit)="onFormSubmit()" class="normal-form">
+    <mat-grid-list cols="1" rowHeight="90px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="id">
+                <mat-form-field>
+                    <input formControlName="name" matInput placeholder="Name">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <div class="button-row">
+                    <!-- [disabled]="service.form.invalid" -->
+                    <button mat-raised-button color="primary" type="submit">Save</button>
+                    <button id='buttonReset' mat-raised-button color="warn" type="reset">Clear</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
